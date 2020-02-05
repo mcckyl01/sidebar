@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+
+		integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+
+		crossorigin="anonymous"></script>
+
+	<script
+
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+
+		integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+
+		crossorigin="anonymous"></script>
+
+	<script
+
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+
+		integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+
+        crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+
+	integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb"
+
+	crossorigin="anonymous">
+
+    <style>
+        body {
+            font-family: "Lato", sans-serif;
+        }
+        
+        .sidebar {
+            height: 100%;
+            width: 85px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: .3s;
+            padding-top: 40px;
+            white-space: nowrap;
+        }
+        
+        .sidebar a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #ffffff;
+            display: block;
+            transition: 0.3s;
+        }
+        
+        .sidebar a:hover {
+            color: #818181;
+        }
+        
+        .sidebar .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+        
+        .material-icons,
+        .icon-text {
+            vertical-align: middle;
+        }
+        
+        .material-icons {
+            padding-bottom: 3px;
+        }
+        
+        #main {
+            transition: margin-left .3s;
+            padding: 16px;
+            margin-left: 100px;
+        }
+    
+        /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+        
+        @media screen and (max-height: 450px) {
+            .sidebar {
+                padding-top: 15px;
+            }
+            .sidebar a {
+                font-size: 18px;
+            }
+        }
+        .button {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: auto;
+  cursor: pointer;
+
+}
+    </style>
+</head>
+
+<body>
+
+    <div id="mySidebar" class="sidebar" onmouseover="toggleSidebar()" onmouseout="toggleSidebar()">
+        <a href="#"><span><i class="material-icons">home</i><span class="icon-text">&nbsp;&nbsp;&nbsp;&nbsp;Home</span></a>
+        <a href="#"><span><i class="material-icons">settings</i><span class="icon-text">&nbsp;&nbsp;&nbsp;&nbsp;Settings</span></a>
+        <a href="#"><span><i class="material-icons">account_box</i><span class="icon-text">&nbsp;&nbsp;&nbsp;&nbsp;Profile</span></a>
+        <a href="#"><span><i class="material-icons">help</i><span class="icon-text">&nbsp;&nbsp;&nbsp;&nbsp;Help</span></a>
+        <a href="#"><span><i class="material-icons">dashboard</i><span class="icon-text">&nbsp;&nbsp;&nbsp;&nbsp;Dashboard</span></a>
+        <a href="@{/company/list}"><i class="material-icons">business</i><span class="icon-text"></span>&nbsp;&nbsp;&nbsp;&nbsp;Company</a></span></a>
+        <a href="@{/user/list}"><i class="material-icons">person</i><span class="icon-text"></span>&nbsp;&nbsp;&nbsp;&nbsp;User</span></a>
+        <a href="@{/device/list}"><i class="material-icons">devices</i><span class="icon-text"></span>&nbsp;&nbsp;&nbsp;&nbsp;Device<span></a>
+        <a href="@{/employee/list}"><i class="material-icons">person</i><span class="icon-text"></span>&nbsp;&nbsp;&nbsp;&nbsp;Employee</span></a>
+        <a href="@{/site/list}"><i class="material-icons">room</i><span class="icon-text"></span>&nbsp;&nbsp;&nbsp;&nbsp;Site</span></a>
+        <a href="@{/bluelock/list}"><i class="material-icons">lock</i><span class="icon-text"></span>&nbsp;&nbsp;&nbsp;&nbsp;Bluelock</span></a>
+        <a href="@{/logout}"><i class="material-icons">settings_power</i><span class="icon-text"></span>&nbsp;&nbsp;&nbsp;&nbsp;Log Off</span></a>
+        
+    </div>
+
+    <div id="main">
+        <h2>Open/Collapse Sidebar on Hover</h2>
+    </div>
+
+    <script>
+        var mini = true;
+
+        function toggleSidebar() {
+            if (mini) {
+                console.log("opening sidebar");
+                document.getElementById("mySidebar").style.width = "250px";
+                document.getElementById("main").style.marginLeft = "250px";
+                this.mini = false;
+            } else {
+                console.log("closing sidebar");
+                document.getElementById("mySidebar").style.width = "85px";
+                document.getElementById("main").style.marginLeft = "85px";
+                this.mini = true;
+            }
+        }
+    </script>
+
+</body>
+
+</html>
